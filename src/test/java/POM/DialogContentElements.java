@@ -71,8 +71,8 @@ public class DialogContentElements extends BasePOM {
         public void userDeleteCountry() {
         searchNameInput.sendKeys(editCountryName);
         searchButton.click();
-        deleteButton.click();
-        wait.until(ExpectedConditions.elementToBeClickable(deleteButton2)).click();
+        waitUntilVisibleAndClickableThenClick(deleteButton);
+        waitUntilVisibleAndClickableThenClick(deleteButton2);
 
 
 
