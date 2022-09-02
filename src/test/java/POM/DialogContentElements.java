@@ -12,7 +12,7 @@ public class DialogContentElements extends BasePOM {
         PageFactory.initElements(driver, this);
 
     }
-    @FindBy(xpath = "//ms-add-button[@tooltip='COUNTRY.TITLE.ADD']")
+    @FindBy(xpath = "//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button")
     private WebElement addButton;
 
     @FindBy(xpath = "//ms-text-field[contains(@placeholder, 'FIELD.NAME')]//input")
