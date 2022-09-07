@@ -20,11 +20,28 @@ public class NavigationBarElements extends BasePOM {
     @FindBy(xpath = "//span[text()='Countries']")
     private WebElement countriesButton;
 
+    @FindBy(xpath = "//span[text()='Citizenships']/..")
+    private WebElement citizenshipButton;
+
+    @FindBy(xpath = "//span[text()='Fees']/..")
+    private WebElement feeButton;
+
 
     public void userSelectsCountriesFromNavigationBar() {
         setupButton.click();
         parametersButton.click();
         countriesButton.click();
+    }
+    public void navigateToCitizenshipPage() {
+        setupButton.click();
+        parametersButton.click();
+        citizenshipButton.click();
+    }
+
+    public void navigateToFeesPage() {
+        setupButton.click();
+        parametersButton.click();
+        feeButton.click();
     }
 
 

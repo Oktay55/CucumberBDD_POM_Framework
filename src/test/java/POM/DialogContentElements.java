@@ -41,6 +41,15 @@ public class DialogContentElements extends BasePOM {
     @FindBy(xpath = "(//div[@class='ng-star-inserted']//button)[2]")
     private WebElement deleteButton2;
 
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='shortName']//input")
+    private WebElement shortNameInput;
+
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='budgetAccountIntegrationCode']//input")
+    private WebElement integrationCodeInput;
+
+    @FindBy(xpath = "//ms-integer-field[@formcontrolname='priority']//input")
+    private WebElement priorityInput;
+
     private String countryName = "Samsun";
     private String code = "5555";
 
@@ -82,6 +91,56 @@ public class DialogContentElements extends BasePOM {
         Assert.assertTrue(successMessage.getText().contains("success".toLowerCase()));
 
 
+    }
+    public void createCitizenship(String name, String shortName) {
+        addButton.click();
+        nameInput.sendKeys(name);
+        shortNameInput.sendKeys(shortName);
+        saveButton.click();
+    }
+
+    public void editCitizenship(String name2, String name3) {
+        searchNameInput.sendKeys(name2);
+        searchButton.click();
+        editButton.click();
+        nameInput.clear();
+        nameInput.sendKeys(name3);
+        saveButton.click();
+
+    }
+    public void deleteCitizenship(String name3) {
+        searchNameInput.sendKeys(name3);
+        searchButton.click();
+
+        waitUntilVisibleAndClickableThenClick(deleteButton);
+        waitUntilVisibleAndClickableThenClick(deleteButton2);
+
+    }
+    public void createFee(String name, String code, String intCode, String priority) {
+        addButton.click();
+        nameInput.sendKeys(name);
+        codeInput.sendKeys(code);
+        integrationCodeInput.sendKeys(intCode);
+        priorityInput.sendKeys(priority);
+        waitUntilVisibleAndClickableThenClick(saveButton);
+    }
+
+    public void editFee(String existingFeeName, String newFeeName) {
+        searchNameInput.sendKeys(existingFeeName);
+        waitUntilVisibleAndClickableThenClick(searchButton);
+        editButton.click();
+        nameInput.clear();
+        nameInput.sendKeys(newFeeName);
+        waitUntilVisibleAndClickableThenClick(saveButton);
+
+    }
+
+    public void deleteFee(String FeeName) {
+        searchNameInput.sendKeys(FeeName);
+        searchButton.click();
+
+        waitUntilVisibleAndClickableThenClick(deleteButton);
+        waitUntilVisibleAndClickableThenClick(deleteButton2);
 
 
     }
